@@ -3,6 +3,9 @@ const https = require('https');
 var app = express();
 var bodyParser = require('body-parser');
 
+require('dotenv').config()
+
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -12,7 +15,7 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res) {
 
-  const api = "";
+  const api = process.env.API_KEY;
   const units = "metric";
   var input = req.body.city;
 
